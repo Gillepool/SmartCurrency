@@ -8,9 +8,22 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.daniel.smartcurrency.CurrencyApplication
 import com.example.daniel.smartcurrency.R
+import com.example.daniel.smartcurrency.models.Currency
+import com.example.daniel.smartcurrency.responsemodels.Envelope
+import javax.inject.Inject
 
 
-class HomeFragment: Fragment() {
+class HomeFragment: Fragment(), HomeContract.View {
+
+    @Inject
+    lateinit var homePresenter: HomePresenter
+    override fun showError() {
+
+    }
+
+    override fun showRates(currencies: List<Currency>) {
+
+    }
 
     companion object {
         fun newInstance(): HomeFragment {
@@ -22,7 +35,7 @@ class HomeFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.activity_main, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onAttach(context: Context) {
@@ -39,6 +52,13 @@ class HomeFragment: Fragment() {
 
 
         initVariables()
+        homePresenter.attachView(this)
+        homePresenter.getRates()
+    }
+
+    override fun onDestroy() {
+        homePresenter.detach()
+        super.onDestroy()
     }
 
     private fun initVariables() {

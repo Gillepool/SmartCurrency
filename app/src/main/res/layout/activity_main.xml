@@ -31,8 +31,8 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:itemBackground="@color/bottom_navigation_view"
-                app:itemIconTint="@drawable/selectors"
-                app:itemTextColor="@drawable/selectors"
+                app:itemIconTint="@drawable/selector"
+                app:itemTextColor="@drawable/selector"
                 android:background="?android:attr/windowBackground"
                 app:menu="@menu/bottomnavigation"/>
 

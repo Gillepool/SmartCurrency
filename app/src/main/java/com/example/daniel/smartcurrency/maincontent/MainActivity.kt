@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     private var intentFragment: Int = 0
 
     companion object {
-        fun startActivity(context: Context, startFragment: Int): Intent {
+        fun startActivity(context: Context): Intent {
             return Intent(context, MainActivity::class.java)
         }
     }
