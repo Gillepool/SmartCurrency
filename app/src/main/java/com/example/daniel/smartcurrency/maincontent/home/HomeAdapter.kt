@@ -33,7 +33,8 @@ class HomeAdapter(private var currencies: List<Currency>,
         private val rate_title: TextView = itemView.findViewById(R.id.rate_title)
         fun bind(position: Int, listener: (Currency) -> Unit) = with(itemView){
             val currency = currencies[position]
-            currency_title.text = "hej"
+            currency_title.text = currency.currency
+            rate_title.text = currency.rate
         }
     }
 }
